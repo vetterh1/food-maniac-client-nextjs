@@ -1,0 +1,1 @@
+# food-maniac-client-nextjs
