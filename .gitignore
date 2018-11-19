@@ -1,0 +1,27 @@
+# Build Output
+dist
+.next
+.vscode
+.DS_Store
+
+# Dependencies
+node_modules/
+package-lock.json
+config.json
+yarn.lock
+test/node_modules
+
+# logs & pids
+*.log
+pids
+
+# coverage
+.nyc_output
+coverage
+
+# test output
+test/**/out
+.DS_Store
+
+# Editors
+**/.idea
