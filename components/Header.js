@@ -1,43 +1,37 @@
 import PropTypes from 'prop-types';
-import { ThemeConsumer, themes } from '../components/ThemeProvider.js'
-
-const linkStyle = {
-  marginRight: 15
-}
+import { ThemeContext } from '../components/ThemeProvider.js'
 
 class Header extends React.Component {
   render () {
-    const { darkMode, handleDarkModeClick } = this.props;
+    const themeSwitchText = this.context.theme.name === 'dark' ? "Switch to light" : "Switch to dark";
+    const navbarClasses = "header navbar navbar-expand-sm " + this.context.theme.bootstrap.navbar;
     return(
-      <nav className="header split-nav">
-        <div className="nav-brand">
-          <h3><a href="#">Food Maniac</a></h3>
+      <nav className={navbarClasses}>
+
+        <div className="nav-brand"><a href="#">FM next</a></div>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerHeader" aria-controls="navbarTogglerHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarTogglerHeader">
+          <ul className="navbar-nav mr-auto mt-2 mt-sm-0">
+            <li className="nav-item active">
+              <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">Link</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" onClick={this.context.toggleTheme}>{themeSwitchText}</a>
+            </li>
+          </ul>
         </div>
-        <div className="collapsible">
-          <input id="collapsible1" type="checkbox" name="collapsible1" />
-          <button>
-          <label htmlFor="collapsible1">
-              <div className="bar1"></div>
-              <div className="bar2"></div>
-              <div className="bar3"></div>
-            </label>
-          </button>
-          <div className="collapsible-body">
-            <ul className="inline">
-                <li>
-                  <ThemeConsumer>      
-                    {({ theme, toggleTheme }) => (
-                      <a style={linkStyle} onClick={toggleTheme}>{theme === themes.dark ? "Switch to light" : "Switch to dark"}</a>
-                    )}
-                  </ThemeConsumer>
-              </li>
-            </ul>
-          </div>
-        </div>
+
       </nav>      
     )
   }
 }
+Header.contextType = ThemeContext;
 
 Header.propTypes = {
   user: PropTypes.shape({

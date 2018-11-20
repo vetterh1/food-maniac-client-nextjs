@@ -5,13 +5,21 @@ console.log("File ThemeProvider.js... ");
 
 export const themes = {
     light: {
+      name: 'light',
       foreground: '#000000',
       background: '#eeeeee',
-      backgroundColor: 'var(--background-color,#fff)'
+      backgroundColor: 'var(--background-color,#fff)',
+      bootstrap: {
+        navbar: 'navbar-light bg-primary',
+      },
     },
     dark: {
+      name: 'dark',
       foreground: '#ffffff',
       background: '#222222',
+      bootstrap: {
+        navbar: 'navbar-dark bg-dark',
+      },    
     },
   };
   
@@ -50,4 +58,4 @@ class ThemeProvider extends Component {
 const ThemeConsumer = ThemeContext.Consumer
 
 export default ThemeProvider
-export { ThemeConsumer }
+export { ThemeConsumer, ThemeContext }
