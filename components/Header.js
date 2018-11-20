@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { ThemeContext } from '../components/ThemeProvider.js'
+import { ThemeContext } from '../components/themes/ThemeProvider.js'
 
 class Header extends React.Component {
   render () {

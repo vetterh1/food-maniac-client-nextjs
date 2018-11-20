@@ -10,7 +10,8 @@ export const themes = {
       background: '#eeeeee',
       backgroundColor: 'var(--background-color,#fff)',
       bootstrap: {
-        navbar: 'navbar-light bg-primary',
+        navbar: 'navbar-light bg-light',
+        button: 'btn btn-outline-primary',
       },
     },
     dark: {
@@ -19,6 +20,7 @@ export const themes = {
       background: '#222222',
       bootstrap: {
         navbar: 'navbar-dark bg-dark',
+        button: 'btn btn-primary',
       },    
     },
   };

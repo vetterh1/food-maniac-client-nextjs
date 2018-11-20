@@ -1,4 +1,4 @@
-import { ThemeConsumer, themes } from '../components/ThemeProvider.js'
+import { ThemeConsumer, themes } from '../components/themes/ThemeProvider.js'
 
 
 const Footer = () => (
